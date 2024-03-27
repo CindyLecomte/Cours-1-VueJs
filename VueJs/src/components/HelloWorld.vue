@@ -1,13 +1,13 @@
 <template>
 
 <h1>Hello World</h1>
-<p>{{ props.subTitle }}</p> <!--On définit dans un paragraphe notre variable props, qui définit les propriétés de subTitle, et subTitle qui est 'Bonjour!'-->
+<p>{{ props.name }} {{ props.age }}</p> <!--On affiche ici le nom et l'âge grâce aux props-->
 
 
 </template>
 
 <script setup>
 
-const props = defineProps(['subTitle']); // On crée une nouvelle constante, qu'on appelle props. On utilise la méthode defineProps, qui prend un tableau, dans lequel on va indiquer le nom de notre constante, subTitle. 
+const props = defineProps(['name', 'age']); // On change defineProps en lui passant name et age
 
 </script>
