@@ -1,6 +1,8 @@
 <template>
 
-<HelloWorld /> <!--On effectue le rendu de notre composant avec un self-closing tag-->
+<HelloWorld :sub-title="subTitle" /> <!--On passe notre variable au composant parent, avec uns syntaxe en kebab-case.-->
+
+
 
 </template>
 
@@ -9,7 +11,13 @@
 
 import HelloWorld from './components/HelloWorld.vue'; // On importe notre composant HelloWorld
 
+
+
+const subTitle = "Bonjour ! " // On crée une variable appelée subTitle, dans laquelle on indique le contenu qu'on veut.
+
 </script>
+
+
 
 
 
