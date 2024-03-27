@@ -1,13 +1,13 @@
 <template>
 
 <h1>Hello World</h1>
-<p>{{ props.name }} {{ props.age }}</p> <!--On affiche ici le nom et l'âge grâce aux props-->
+<p>{{ props.user.name }} {{ props.user.age }}</p> <!--On affiche le nom de l'user ainsi que l'âge du user.-->
 
 
 </template>
 
 <script setup>
 
-const props = defineProps(['name', 'age']); // On change defineProps en lui passant name et age
+const props = defineProps(['user']); // On change defineProps, en lui passant cette fois user.
 
 </script>

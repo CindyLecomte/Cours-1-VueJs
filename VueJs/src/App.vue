@@ -1,9 +1,10 @@
 <template>
 
-<HelloWorld :name="name" :age="age" /> <!--On passe à notre composant les variables name et age-->
+<HelloWorld :user="user" /> <!--On passe à notre composant notre nouvelle variable, user-->
 
-<input type="text" v-model="name"> <!--On crée un input qu'on relie à la variable name grâce à v-model-->
-<input type="text" v-model="age">   <!--On crée un input qu'on relie à la variable age frâce à v-model-->
+<input type="text" v-model="user.name"> <!--On crée deux nouveaux inpout, un qui va être lié au name-->
+<input type="text" v-model="user.age">  <!--Et un qui va être lié a age. On doit mettre user. devant, car c'est un objet.-->
+
 
 </template>
 
@@ -13,15 +14,11 @@
 import HelloWorld from './components/HelloWorld.vue'; // On importe notre composant HelloWorld
 import { ref } from 'vue';
 
-const name = ref("Cindy"); //On crée une variable contenant le nom
-const age = ref(26); // Et une variable contenant l'âge
+const user = ref ({
+    name : 'Cindy',
+    age: 26,    // On crée une nouvelle constante en lui passant un objet, avec le name et l'age.
+})
 
-
-const display = () => {
-    console.log(name.value, age.value) // On crée une  fonction qui va simplement faire un affichage en console, grâce au .value 
-}
-
-display() // On appelle notre fonction
 
 </script>
 
