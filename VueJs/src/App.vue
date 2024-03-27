@@ -17,6 +17,11 @@ const name = ref("Cindy"); //On crée une variable contenant le nom
 const age = ref(26); // Et une variable contenant l'âge
 
 
+const display = () => {
+    console.log(name.value, age.value) // On crée une  fonction qui va simplement faire un affichage en console, grâce au .value 
+}
+
+display() // On appelle notre fonction
 
 </script>
 
