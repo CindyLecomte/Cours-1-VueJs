@@ -12,13 +12,18 @@
 <script setup>
 
 import HelloWorld from './components/HelloWorld.vue'; // On importe notre composant HelloWorld
-import { ref } from 'vue';
+import { reactive } from 'vue'; //On importe reactive
 
-const user = ref ({
+const user = reactive ({ // Au lieu de ref, on met reactive
     name : 'Cindy',
     age: 26,    // On crée une nouvelle constante en lui passant un objet, avec le name et l'age.
 })
 
+const display = () => { // On crée une fonction display, qui va afficher en console user.
+    console.log(user);
+}
+
+display() //On oublie pas d'appeler la fonction
 
 </script>
 
