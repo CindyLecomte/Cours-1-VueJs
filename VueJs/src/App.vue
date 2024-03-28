@@ -2,15 +2,10 @@
 
 <HelloWorld /> 
 
-
-<div
-:class="[user.age > 30 ? 'text-red' : 'text-green']"
->   <!--On attribue une class à cette div en faisant une condition en ternaire : si l'âge de l'utilisateur est strictement supérieur à 30, le nom sera en rouge. Sinon, le nom sera en vert. Cela changera si on change l'âge dans notre const user.-->
-
-    {{ user.name }} <!--On crée une div dans laquelle on va afficher le nom du user-->
-
-</div>
-
+<span>{{ sentence }}</span> <!--On remplace la phrase qu'on avait auparavant, par celle qu'on a définit avec la méthode computed.-->
+<br><br>
+<input type="text" v-model="name">
+<input type="text" v-model="age">      <!--On crée deux input pour pouvoir changer les données par le formulaire.-->
 
 </template>
 
@@ -18,29 +13,22 @@
 <script setup>
 
 import HelloWorld from './components/HelloWorld.vue'; // On importe notre composant HelloWorld
-import { reactive } from 'vue'; //On importe reactive
+import { computed, ref } from 'vue'; //On importe ref et computed
 
-const user = reactive ({ // Au lieu de ref, on met reactive
-    name : 'Cindy',
-    age: 31,    // On crée une nouvelle constante en lui passant un objet, avec le name et l'age.
+
+const sentence = computed (() => {
+    return `Bonjour, je m'appelle ${name.value} et j'ai ${age.value}` // On crée une variable appelée sentence, qui va utiliser la méthode computed. On va retourner une phrase qui prend en compte les deux variables. 
 })
 
+const name = ref('Cindy');
 
+const age = ref(26);    //On crée deux variable avec le nom et l'âge
 
 </script>
 
 
 
-
-
 <style scoped>
 
-.text-red {
-    color: red;
-}
-
-.text-green {
-    color: green; /* On crée une classe pour une couleur rouge et une classe pour la couleur verte*/
-}
 
 </style>
