@@ -12,13 +12,12 @@
 
 import{ ref } from 'vue'; //On importe ici ref depuis vue
 
-const handleUpdate = (event) => {
-    console.log(event.target.value) // On crée la fonction handleUpdate, qui va récupérer l'événement. On fait un console.log de l'event, et on récupère la valeur de l'input. De cette manière, on aura la valeur de l'input en console.
-};
-
-
-
 const emit = defineEmits(['updateName']); //On crée une const emit, à laquelle on va utiliser definEmit, qui va prendre ce qu'on va appeler updateName.
+
+const handleUpdate = (event) => {
+   emit('updateName', event.target.value);  //On va utiliser emit. On lui donne le nom de l'événement (updateName), et on va lui passer la valeur qu'on avait avant dans le console.log
+}
+
 
 const name = ref(""); //On crée une const name, qui sera une chaîne de caractère vide par défaut.
 

@@ -1,10 +1,9 @@
 <template>
 
-<HelloWorld /> 
+<HelloWorld
 
-
-<input type="text" v-model="name">
-<input type="text" v-model="age">     
+@update-name="name => display(name)" 
+/>  <!--On va écouter l'événement depuis ce composant, le composant parent. On fait un @update-name, et on lui passe les arguments : le name, qu'on va envoyer dans la fonction que l'on veut (display(name))-->
 
 </template>
 
@@ -12,17 +11,10 @@
 <script setup>
 
 import HelloWorld from './components/HelloWorld.vue'; // On importe notre composant HelloWorld
-import { watch, ref } from 'vue'; //On importe ref et watch
 
-
-
-const name = ref('Cindy');
-const age = ref(26);    //On crée deux variable avec le nom et l'âge
-
-
-watch(name, (newValue, oldValue) => { //On crée un watch qui prend le name. Il prend en paramètre une nouvelle valeur et une ancienne valeur. On va lui passer un callback, qui va rendre un console.log de la nouvelle valeur, et de l'ancienne valeur. 
-    console.log(newValue, oldValue) // Lorsqu'on va regarder en console, au changement de l'input name, on aura bien la nouvelle valeur suivi de l'ancienne valeur.
-})
+const display = (name) => {
+    console.log('App.vue : ' + name)    // Le name mis à jour, on va le console.log : On crée une const display, qui est une fonction, qui prend le name mis à jour. On fait ensuite un console.log depuis App.vue et on console.log notre name.
+}
 
 </script>
 
